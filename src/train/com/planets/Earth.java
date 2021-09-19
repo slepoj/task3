@@ -1,10 +1,15 @@
 package train.com.planets;
 
 public class Earth  extends Planet implements PlanetAcceleration {
-    @Override
-    public double acceleration() {
-        r = 6371000;
+    public Earth() {
+        r = 6378100;
         m = 5.9726* Math.pow(10,24);
-        return AccelerationUtil.freeFallAcceleration(G,m,r);
+    }
+
+    @Override
+    public double[] acceleration() {
+        double num[] = AccelerationUtil.freeFallAcceleration(G, m,r);
+        g = num[0];
+        return num;
     }
 }
